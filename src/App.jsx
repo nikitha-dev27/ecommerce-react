@@ -24,15 +24,11 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Faq from "./pages/Faq";
 
-
 function App() {
-
   const [search, setSearch] = useState("");
 
   return (
-
-    <BrowserRouter>
-
+    <BrowserRouter basename="/ecommerce-react">
       <Navbar
         search={search}
         setSearch={setSearch}
@@ -40,88 +36,80 @@ function App() {
 
       <Routes>
 
-        {/* Home */}
         <Route
           path="/"
-          element={
-            <Home
-              search={search}
-            />
-          }
+          element={<Home search={search} />}
         />
 
-        {/* Products */}
         <Route
           path="/products"
-          element={
-            <Products
-              search={search}
-            />
-          }
+          element={<Products search={search} />}
         />
 
-        {/* Product Details */}
         <Route
           path="/product/:id"
           element={<ProductDetails />}
         />
 
-        {/* Cart */}
         <Route
           path="/cart"
           element={<Cart />}
         />
 
-        {/* Wishlist */}
         <Route
           path="/wishlist"
           element={<Wishlist />}
         />
 
-        {/* Checkout */}
         <Route
           path="/checkout"
           element={<Checkout />}
         />
 
-        {/* Success */}
         <Route
           path="/success"
           element={<OrderSuccess />}
         />
 
-        {/* Login */}
         <Route
           path="/login"
           element={<Login />}
         />
 
-        {/* Register */}
         <Route
           path="/register"
           element={<Register />}
         />
 
-        {/* 404 */}
+        <Route
+          path="/orders"
+          element={<Orders />}
+        />
+
+        <Route
+          path="/profile"
+          element={<Profile />}
+        />
+
+        <Route
+          path="/about"
+          element={<About />}
+        />
+
+        <Route
+          path="/contact"
+          element={<Contact />}
+        />
+
+        <Route
+          path="/faq"
+          element={<Faq />}
+        />
+
         <Route
           path="*"
           element={<NotFound />}
         />
-
-        <Route
-  path="/orders"
-  element={<Orders />}
-/>
-
-
-<Route
-  path="/profile"
-  element={<Profile />}
-/>
-
-<Route path="/about" element={<About />} />
-<Route path="/contact" element={<Contact />} />
-<Route path="/faq" element={<Faq />} />
 
       </Routes>
 
@@ -135,9 +123,7 @@ function App() {
         closeOnClick
         pauseOnHover
       />
-
     </BrowserRouter>
-
   );
 }
 
